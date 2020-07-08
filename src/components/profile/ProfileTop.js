@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ProfileTop = ({profile: {status, company, location, website, social, user: {name, avatar}}}) => {
+const ProfileTop = ({profile: {status, company, location, website, githubusername, social, user: {name, avatar}}}) => {
     return (
         <div className='profile-top bg-primary p-2'>
           <img
@@ -13,7 +13,10 @@ const ProfileTop = ({profile: {status, company, location, website, social, user:
             <p className='lead'>{status} {company && <span> at {company}</span>}</p>
           <p>{location && <span>{location}</span>}</p>
           <div className='icons my-1'>
-            {website && (<a href={website} target='_blank' rel='noopener noreferrer'>
+            {githubusername && (<a href={'https://github.com/'+githubusername.toString()} target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-github fa-2x'></i>
+            </a>)}
+            {githubusername && (<a href={website} target='_blank' rel='noopener noreferrer'>
               <i className='fas fa-globe fa-2x'></i>
             </a>)}
             {social && social.twitter && (<a href={social.twitter} target='_blank' rel='noopener noreferrer'>
